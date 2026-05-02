@@ -77,11 +77,10 @@ def handle_input(tokens, table):
         else:
             # Try to save as a float
             table[var_name] = float(raw_value)
-        print(f"Variable '{var_name}' set to {table[var_name]}")
             
     except ValueError:
         # If the user types "abc" or "10-helper"
-        print(f"Error: Invalid number format. Variable '{var_name}' was not created.")
+        print("Error: Invalid number format")
 
 def handle_output(tokens, table):
     # Check if the user actually provided a variable name
