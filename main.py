@@ -87,7 +87,7 @@ class SNOLInterpreter:
 
     def apply_op(self, left, op, right):
         if type(left) != type(right):
-            raise TypeError("Operands must be of the same type in an arithmetic operation!")
+            raise TypeError("Incompatible types")
         
         if op == '+': return left + right
         if op == '-': return left - right
@@ -201,7 +201,7 @@ class SNOLInterpreter:
             if len(tokens) == 2 and tokens[1][0] == 'ID':
                 var_name = tokens[1][1]
                 if var_name in ['BEG', 'PRINT']:
-                    print("SNOL> Unknown command! Does not match any valid command of the language.")
+                    print("SNOL> Unknown command! What follows the keyword BEG should be a variable")
                     return
                 print(f"SNOL> Please enter value for [{var_name}]:")
                 val_str = input("Input: ").strip()
@@ -213,10 +213,10 @@ class SNOLInterpreter:
                     else:
                         raise ValueError()
                 except ValueError:
-                    print(f"SNOL> Unknown word [{val_str}]")
+                    print(f"SNOL> Invalid number format [{val_str}]")
                 return
             else:
-                print("SNOL> Unknown command!")
+                print("SNOL> Unknown command! What follows the keyword BEG should be a variable")
                 return
 
         # PRINT out
@@ -232,10 +232,10 @@ class SNOLInterpreter:
                 elif kind == 'INTEGER' or kind == 'FLOAT':
                     print(f"SNOL> [{val}] = {val}")
                 else:
-                    print("SNOL> Unknown command!")
+                    print("SNOL> Unknown command! Does not match any valid command of the language.")
                 return
             else:
-                 print("SNOL> Unknown command!")
+                 print("SNOL> Unknown command! Does not match any valid command of the language.")
                  return
 
         # Assignment: var = expr
@@ -253,16 +253,16 @@ class SNOLInterpreter:
                 except NameError as e:
                     print(f"SNOL> {str(e)}")
                 except TypeError as e:
-                    print(f"SNOL> Error! {str(e)}")
+                    print(f"SNOL> {str(e)}")
                 except (SyntaxError, ZeroDivisionError):
-                    print("SNOL> Unknown command!")
+                    print("SNOL> Unknown command! Does not match any valid command of the language.")
             else:
-                print("SNOL> Unknown command!")
+                print("SNOL> Unknown command! Does not match any valid command of the language.")
             return
 
         # Operation / Standalone expression
         if self.is_valid_expression_syntax(tokens):
-            # Special check for standalone undefined identifier
+            # Standalone undefined identifier check
             if len(tokens) == 1 and first_kind == 'ID':
                 if first_val not in self.symbol_table and first_val not in ['BEG', 'PRINT']:
                     print(f"SNOL> Unknown word [{first_val}]")
@@ -273,19 +273,13 @@ class SNOLInterpreter:
             except NameError as e:
                 print(f"SNOL> {str(e)}")
             except TypeError as e:
-                print(f"SNOL> Error! {str(e)}")
+                print(f"SNOL> {str(e)}")
             except (SyntaxError, ZeroDivisionError, IndexError):
-                print("SNOL> Unknown command!")
+                print("SNOL> Unknown command! Does not match any valid command of the language.")
             return
 
-        # If not a recognized command or valid expression structure
-        # Check if the first word is an unknown word
-        if first_kind == 'ID':
-            if first_val not in self.symbol_table and first_val not in ['BEG', 'PRINT']:
-                print(f"SNOL> Unknown word [{first_val}]")
-                return
-        
-        print("SNOL> Unknown command!")
+        # If it reaches here, it's not a valid recognized command or valid expression syntax
+        print("SNOL> Unknown command! Does not match any valid command of the language.")
 
 
 
