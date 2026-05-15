@@ -201,7 +201,7 @@ class SNOLInterpreter:
             if len(tokens) == 2 and tokens[1][0] == 'ID':
                 var_name = tokens[1][1]
                 if var_name in ['BEG', 'PRINT']:
-                    print("SNOL> Unknown command!")
+                    print("SNOL> Unknown command! Does not match any valid command of the language.")
                     return
                 print(f"SNOL> Please enter value for [{var_name}]:")
                 val_str = input("Input: ").strip()
