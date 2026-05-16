@@ -17,10 +17,20 @@ std::vector<Token> tokenize(const std::string& line) {
             continue;
         }
         
-        // Check for EXIT!
-        if (line.substr(i, 5) == "EXIT!") {
+        // Check for Keywords
+        if (i + 5 <= line.length() && line.compare(i, 5, "EXIT!") == 0) {
             tokens.push_back({TokenType::EXIT, "EXIT!"});
             i += 5;
+            continue;
+        }
+        if (i + 5 <= line.length() && line.compare(i, 5, "PRINT") == 0) {
+            tokens.push_back({TokenType::ID, "PRINT"});
+            i += 5;
+            continue;
+        }
+        if (i + 3 <= line.length() && line.compare(i, 3, "BEG") == 0) {
+            tokens.push_back({TokenType::ID, "BEG"});
+            i += 3;
             continue;
         }
         
