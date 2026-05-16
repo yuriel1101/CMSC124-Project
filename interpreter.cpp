@@ -51,7 +51,7 @@ void SNOLInterpreter::run_command(const std::string& line) {
             std::cout << "SNOL> Please enter value for [" << var_name << "]:" << std::endl;
             std::cout << "Input: ";
             std::string input_val;
-            std::cin >> input_val;
+            std::getline(std::cin, input_val);
             try {
                 if (std::regex_match(input_val, std::regex("^-?\\d+\\.\\d+"))) {
                     symbol_table[var_name] = std::stod(input_val);
