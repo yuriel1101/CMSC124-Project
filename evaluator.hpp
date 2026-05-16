@@ -1,3 +1,8 @@
+/*
+CMSC 124 C-3L Final Project: SNOL Interpreter
+Description: Header file for the evaluator module, defining the Value type variant 
+and function signatures for mathematical expression evaluation and syntax validation.
+*/
 #ifndef EVALUATOR_HPP
 #define EVALUATOR_HPP
 

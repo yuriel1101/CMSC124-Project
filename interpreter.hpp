@@ -1,3 +1,8 @@
+/*
+CMSC 124 C-3L Final Project: SNOL Interpreter
+Description: Header file for the main SNOLInterpreter class, defining the state management 
+variables and core methods for starting the interactive environment.
+*/
 #ifndef INTERPRETER_HPP
 #define INTERPRETER_HPP
 

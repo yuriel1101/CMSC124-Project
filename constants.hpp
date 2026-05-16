@@ -1,3 +1,8 @@
+/*
+CMSC 124 C-3L Final Project: SNOL Interpreter
+Description: Provides central definitions for regex patterns, language keywords, 
+and operator symbols used throughout the lexical analysis phase.
+*/
 #ifndef CONSTANTS_HPP
 #define CONSTANTS_HPP
 

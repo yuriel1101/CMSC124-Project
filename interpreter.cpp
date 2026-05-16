@@ -1,3 +1,8 @@
+/*
+CMSC 124 C-3L Final Project: SNOL Interpreter
+Description: Implements the SNOLInterpreter class, managing the interactive command loop, 
+the symbol table for variable storage, and individual command processing logic.
+*/
 #include "interpreter.hpp"
 #include <regex>
 #include <sstream>

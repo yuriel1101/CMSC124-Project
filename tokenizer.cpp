@@ -1,3 +1,8 @@
+/*
+CMSC 124 C-3L Final Project: SNOL Interpreter
+Description: Implementation of the lexical analysis logic, converting raw input strings 
+into categorized tokens while handling numeric literals, identifiers, and operators.
+*/
 #include "tokenizer.hpp"
 #include <regex>
 #include <cctype>

@@ -1,3 +1,8 @@
+/*
+CMSC 124 C-3L Final Project: SNOL Interpreter
+Description: Implementation of expression evaluation using the Shunting-yard algorithm, 
+supporting operator precedence, type-safe operations, and error handling for invalid expressions.
+*/
 #include "evaluator.hpp"
 #include <stack>
 #include <cmath>

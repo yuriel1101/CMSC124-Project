@@ -1,3 +1,8 @@
+/*
+CMSC 124 C-3L Final Project: SNOL Interpreter
+Description: Header file for the tokenizer module, defining the TokenType enumeration 
+and the Token structure used to represent lexical units in the SNOL language.
+*/
 #ifndef TOKENIZER_HPP
 #define TOKENIZER_HPP
 
